@@ -1,0 +1,26 @@
+<title>Write Your Note</title>
+{% include 'header.html' %}
+<div class="container mt-5">
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="card text-center col-md-6 mx-auto">
+    <br><h6>Welcome {{request.user.first_name}} {{request.user.last_name}}</h6><hr>
+    <div class="card-header">
+      <h2 style="color:white;">Add Notes</h2>  
+    </div>
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Note Name</label>
+        <input type="text" class="form-control" name="note_name" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Note Description</label>
+        <textarea class="form-control" name="note_description"></textarea> 
+      </div>
+       <button type="submit" class="btn btn-primary">Add Note</button>
+  </div>
+  </form>
+</div>
+</div>
+</body>
+</html>

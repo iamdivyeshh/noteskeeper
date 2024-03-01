@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>SignUp Page</title>
+</head>
+<body>
+  {% include 'header.html' %}
+<div class="container">
+<form method="post" enctype="multipart/form-data" >
+  {% csrf_token %}
+    
+  <div class="card text-center col-md-6 mx-auto">
+    <div class="alert alert-primary d-flex align-items-center" role="alert>
+      {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    <div class="card-header">
+      <h2 style="color: white;">Register</h2>  
+    </div>
+    <div class="card-body row g-3 align-items-center">
+      <div class="form-floating">
+        <input type="text" class="form-control" name="first_name" id="floatingPassword" placeholder="First Name" required>
+        <label for="floatingPassword">First Name</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" name="last_name" placeholder="Last Name" required>
+        <label for="floatingPassword">Last Name</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" name="username" id="floatingPassword" placeholder="Username" required>
+        <label for="floatingPassword">Username</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <p class="card-text">Already have account? - <a style="text-decoration: none; color: white;" href="/login/" >Login</a></p>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+</body>
+</html>

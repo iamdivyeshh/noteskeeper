@@ -1,0 +1,38 @@
+{% load static %}
+<script src="{% static '/js/del.js' %}"></script>
+
+{% include 'header.html' %}
+
+
+<div class="container mt-5 col-md-12 p-2">
+    {% csrf_token %}
+
+    <table class="table table-striped">
+    <thead class="table-light">
+      <tr>
+      <th scope="col">Sr No.</th>
+      <th scope="col">Note Name</th>
+      <th scope="col">Note Description</th>
+      <th scope="col">Update Note</th> 
+      <th scope="col">Delete Note</th>   
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% for n in notes %}
+    
+        
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{n.note_name}}</td>
+        <td>{{n.note_description}}</td>
+        <td><a href="/update-note/{{n.id}}/" class="btn btn-success">Update</a></td>
+        <td><a href="/delete-note/{{n.id}}/" class="btn btn-danger" onclick="delNote()">Delete</a></td>
+
+      </tr>       
+      {% endfor %}
+    </tbody>
+    </table>
+  </div>
+</body>
+</html>
